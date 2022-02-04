@@ -7,6 +7,6 @@ The solutions that I build as going through the book "Cracking the Coding Interv
 
 ## Command to Execute the programs
 ```
-> g++ .\<filename>.cpp .\imports\*.cpp -o main
+> g++ .\<filename>.cpp -o main
 > .\main.exe
 ```
