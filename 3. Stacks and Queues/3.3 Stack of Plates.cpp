@@ -13,7 +13,7 @@ public:
     
     void push(int item) {
         if (plates->isEmpty() || plates->top()->length() == size) {
-            Stack<int>* newStack = new Stack<int>(size);
+            Stack<int>* newStack = new Stack<int>();
             plates->push(newStack);
         }
         plates->top()->push(item);
