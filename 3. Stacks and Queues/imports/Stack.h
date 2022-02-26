@@ -5,29 +5,40 @@ using namespace std;
 #define ARRAYLIST_INCLUDE
 
 template <typename T>
+class Node {
+public:
+    T data;
+    Node<T>* next;
+
+    Node(T data) {
+        this->data = data;
+        next = NULL;
+    }
+};
+
+template <typename T>
 class Stack {
-    T* stack;
-    int maxSize;
+    Node<T>* head;
     int size;
 
 public:
-    Stack(int maxSize = 10) {
-        this->maxSize = maxSize;
-        stack = new T[maxSize];
+    Stack() {
+        head = NULL;
         size = 0;
     }
     void push(T item) {
-        if (size == maxSize) {
-            cout << "Overflow" << endl;
-            return;
-        }
-        stack[size++] = item;
+        Node<T>* newNode = new Node<T>(item);
+        newNode->next = head;
+        head = newNode;
+
+        size++;
     }
     void pop() {
         if (isEmpty()) {
             cout << "Underflow" << endl;
             return;
         }
+        head = head->next;
         size--;
     }
     T top() {
@@ -35,10 +46,10 @@ public:
             cout << "Underflow" << endl;
             return T();
         }
-        return stack[size - 1];
+        return head->data;
     }
     bool isEmpty() {
-        return size == 0;
+        return head == NULL;
     }
     int length() {
         return size;
