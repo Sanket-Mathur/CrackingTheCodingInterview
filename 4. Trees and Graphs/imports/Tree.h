@@ -7,6 +7,12 @@ public:
     T data;
     TreeNode<T>* left;
     TreeNode<T>* right;
+
+    TreeNode(int data) {
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
 };
 
 #endif
